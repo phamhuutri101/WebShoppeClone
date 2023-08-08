@@ -18,6 +18,12 @@
     position: relative;
 }
 
+.header__navbar-item:hover,
+.header__navbar-item-link:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
 .header__navbar-item,
 .header__navbar-item-link {
     display: inline-block;
@@ -36,8 +42,16 @@
     display: block;
     position: absolute;
     border-left: solid 1px #fad2cf;
+    opacity: 0.3;
     height: 16px;
     top: 0;
     right: -10px;
 
+}
+
+.header__navbar-icon-link {
+    font-size: 1.6rem;
+    color: var(--white-color);
+    margin: 0 2px;
+    text-decoration: none;
 }
