@@ -108,13 +108,57 @@
     display: block;
 }
 
+.header__navbar-item-has-noti:hover .header__notification {
+    display: block;
+}
+
 .header__notification {
     position: absolute;
-    top: 118%;
+    top: 150%;
     width: 404px;
     background-color: var(--white-color);
     right: 0;
     border: 1px solid #D3D3D3;
+    cursor: default;
+    transform-origin: calc(100% - 20px) top;
+    /* chuyển tâm scale hiệu ứng hàm tính toán để sau này nội dung có dài ra cũng không bị lệch tâm*/
+    animation: headerNotification 0.2s ease-in;
+    display: none;
+    will-change: transform opacity;
+    /* tối ưu hóa chuyển động của 2 hiệu ứng trên */
+}
+
+@keyframes headerNotification {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.header__notification::before {
+    /*Lớp giả dùng để tạo nút nhọn ở phần thông báo */
+    content: "";
+    border-width: 20px 26px;
+    border-style: solid;
+    position: absolute;
+    border-color: transparent transparent var(--white-color) transparent;
+    right: 10px;
+    top: -30px;
+}
+
+.header__notification::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -20px;
+    width: 90px;
+    height: 20px;
 }
 
 .header__notify-header {
@@ -129,24 +173,80 @@
     font-size: 1.6rem;
     line-height: 40px;
     margin: 0 0 0 12px;
+    user-select: none;
+    /*không cho người dùng coppy */
 }
 
 .header__notify-list {
     padding-left: 0px;
 }
 
-.header__notify-item {}
-
-.header__notify-link {
+.header__notify-item {
     display: flex;
 }
 
-.header__notify-img {
-    width: 50%;
+.header__notify-item:hover {
+    background-color: #f7f7f7;
 }
 
-.header__notify-info {}
+.header__notify-item--view {
+    background-color: rgba(238, 75, 43, 0.07);
+}
 
-.header__notify-name {}
+.header__notify-link {
+    display: flex;
+    padding: 12px;
+    text-decoration: none;
 
-.header__notify-descriotion {}
+}
+
+.header__notify-img {
+    width: 20%;
+    object-fit: contain;
+    /* Làm cho ảnh không bị méo không cần dùng đến thẻ a */
+}
+
+.header__notify-info {
+    margin-left: 12px;
+}
+
+.header__notify-name {
+    display: block;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    font-weight: 410;
+    color: var(--black-color);
+
+}
+
+.header__notify-descriotion {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    color: #756F6E;
+    margin-top: 4px;
+}
+
+.footer__notify-footer {}
+
+.footer__notify-footer-btn {
+    text-decoration: none;
+    color: var(--text-color);
+    width: 100%;
+    padding: 8px 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: center;
+    display: block;
+}
+
+/*modal*/
+
+.auth-form__controls {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth-form__controls-back {
+    margin-right: 8px;
+}
