@@ -4,6 +4,9 @@
     --text-color: #333;
     --primary-color: #EF4D2D;
     --boder-color: #dbdbdb;
+    --header-height: 120px;
+    --navbar-height: 34px;
+    --header-with-search-height: calc(var(--header-height)-var(var(--navbar-height)))
 }
 
 * {
